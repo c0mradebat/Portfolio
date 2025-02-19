@@ -121,12 +121,9 @@ form.addEventListener("submit", function (event) {
     message: document.querySelector("[name='message']").value,
   };
 
-  // Use your public key
-  const publicKey = "33KMRbRW66VVQ83de";
-
-  // Email sending logic
+  // Use the hidden public key
   emailjs
-    .send("service_o99ouro", "template_hwek95a", formData, publicKey)
+    .send("service_o99ouro", "template_hwek95a", formData, CONFIG.PUBLIC_KEY)
     .then(function (response) {
       alert("Message sent successfully!");
       form.reset(); // Clear the form after submission
@@ -136,7 +133,6 @@ form.addEventListener("submit", function (event) {
       console.error("Error:", error);
     });
 });
-
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
